@@ -1,0 +1,23 @@
+{
+  "name": "bspline",
+  "version": "0.0.0",
+  "description": "Bezier curves and bsplines -> line segments",
+  "main": "bezier-forward-diff.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/maxharris9/bspline.git"
+  },
+  "keywords": [
+    "bspline",
+    "Bezier"
+  ],
+  "author": "Max Harris <harris.max@gmail.com> (http://xyzzy.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/maxharris9/bspline/issues"
+  },
+  "homepage": "https://github.com/maxharris9/bspline"
+}
