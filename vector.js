@@ -23,7 +23,7 @@ sum = function (vectorList) {
   return result;
 };
 
-dumpToCsv = function (pointList) {
+exports.dumpToCsv = function (pointList) {
   for (var i = 0; i < pointList.length; i++) {
     console.log(pointList[i].x + ', ' + pointList[i].y + ', ' + pointList[i].z);
   }
