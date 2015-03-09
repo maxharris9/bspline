@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/maxharris9/bspline/issues"
   },
-  "homepage": "https://github.com/maxharris9/bspline"
+  "homepage": "https://github.com/maxharris9/bspline",
+  "devDependencies": {
+    "benchmark": "^1.0.0"
+  }
 }
