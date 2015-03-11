@@ -1,11 +1,11 @@
+var vec3create = require('gl-vec3/create');
 var vec3scale = require('gl-vec3/scale');
 var vec3add = require('gl-vec3/add');
 var vec3scaleAndAdd = require('gl-vec3/scaleAndAdd');
 
 // forward-differencing
-
 // original: http://www.drdobbs.com/forward-difference-calculation-of-bezier/184403417?pgno=5
-exports.calcBezier = function (input, steps) {
+exports.calcBezier = function (result, input, steps) {
   var a = [0, 0, 0];
   var b = [0, 0, 0];
   var c = [0, 0, 0];
@@ -41,18 +41,20 @@ exports.calcBezier = function (input, steps) {
 
   // compute points at each step
   var point = [input[0][0], input[0][1], input[0][2]];
-  var result = new Array(steps);
-  result[0] = [input[0][0], input[0][1], input[0][2]];
+  result[0][0] = input[0][0];
+  result[0][1] = input[1][0];
+  result[0][2] = input[2][0];
 
-  var stepCount = steps - 1;
-  for (var i = 0; i < stepCount; i++) {
+  for (var i = 1; i < steps; i++) {
     vec3add(point, point, firstFD);
     vec3add(firstFD, firstFD, secondFD);
     vec3add(secondFD, secondFD, thirdFD);
 
-    result[i + 1] = [point[0], point[1], point[2]];
+    result[i][0] = point[0];
+    result[i][1] = point[1];
+    result[i][2] = point[2];
   }
-  result[steps] = [input[3][0], input[3][1], input[3][2]];
-
-  return result;
+  result[steps][0] = input[3][0];
+  result[steps][1] = input[3][1];
+  result[steps][2] = input[3][2];
 };

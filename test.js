@@ -1,6 +1,7 @@
 var test = require('tape');
 var bezier = require('./bezier');
 var vec3 = require('gl-vec3');
+var util = require('./util');
 
 var input = [ [ 0, 0, 0 ],
               [ 0, 0, 1 ],
@@ -8,7 +9,8 @@ var input = [ [ 0, 0, 0 ],
               [ 1, 1, 1 ] ];
 
 test('simple case with four points, 8 segments', function (t) {
-  var result = bezier.calcBezier(input, 8);
+  var result = util.newZeroedArray(8 + 1); // 9 points define 8 segments
+  bezier.calcBezier(result, input, 8);
 
   var expected = [ [ 0, 0, 0 ],
                    [ 0.001953125, 0.04296875, 0.330078125 ],
@@ -25,7 +27,9 @@ test('simple case with four points, 8 segments', function (t) {
 });
 
 test('simple case with four points, 12 segments', function (t) {
-  var result = bezier.calcBezier(input, 12);
+  var result = util.newZeroedArray(12 + 1);
+
+  bezier.calcBezier(result, input, 12);
 
   var expected = [ [ 0, 0, 0 ],
                    [ 0.0005787037037037037, 0.019675925925925923, 0.22974537037037038 ],
