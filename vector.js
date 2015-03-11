@@ -1,4 +1,4 @@
-mult = function (v, scalar) {
+exports.mult = function (v, scalar) {
   return {
     x: v.x * scalar,
     y: v.y * scalar,
@@ -6,7 +6,7 @@ mult = function (v, scalar) {
   };
 };
 
-add = function (v1, v2) {
+exports.add = function (v1, v2) {
   return {
     x: v1.x + v2.x,
     y: v1.y + v2.y,
@@ -14,11 +14,11 @@ add = function (v1, v2) {
   };
 };
 
-sum = function (vectorList) {
+exports.sum = function (vectorList) {
   var result = { x: 0, y: 0, z: 0 };
 
   for (var i = 0; i < vectorList.length; i++) {
-    result = add(result, vectorList[i]);
+    result = this.add(result, vectorList[i]);
   }
   return result;
 };
