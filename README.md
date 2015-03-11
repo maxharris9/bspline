@@ -1,5 +1,6 @@
 ###example###
 
+```
   var bezier = require('./bezier');
   var util = require('./util');
 
@@ -14,3 +15,4 @@
   var result = util.newZeroedArray(segments + 1); // n + 1 points define n segments
 
   bezier.calcBezier(result, newInput, segments);
+```
